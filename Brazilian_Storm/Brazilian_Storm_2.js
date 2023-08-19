@@ -2,13 +2,23 @@ const notas = [100, 100, 100, 20, 50, 30, 14, 100, 100, 100];
 
 function solucao(notas) {
     //seu codigo aqui
-    const maiorNota = Math.max(...notas);
-    const menorNota = Math.min(...notas);
+    let maiorNota = notas[0];
+    let menorNota = notas[0];
     let somaNotas = 0;
 
-    for (nota of notas) {
+    for (let nota of notas) {
 
         somaNotas += nota
+
+        if (nota > maiorNota) {
+
+            maiorNota = nota;
+        }
+
+        if (nota < menorNota) {
+
+            menorNota = nota;
+        }
     }
 
     somaNotas -= (maiorNota + menorNota);
@@ -16,3 +26,5 @@ function solucao(notas) {
 
     console.log(somaNotas);
 }
+
+console.log(`${solucao(notas)}`);
